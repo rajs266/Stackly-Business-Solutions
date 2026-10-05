@@ -2,6 +2,147 @@
 
 (function() {
 
+  function initStacklyPreloader() {
+    let preloader = document.getElementById('stackly-preloader');
+    
+    
+    if (!preloader && document.body) {
+      preloader = document.createElement('div');
+      preloader.id = 'stackly-preloader';
+      preloader.className = 'stackly-preloader';
+      preloader.setAttribute('aria-hidden', 'true');
+      preloader.innerHTML = `
+        <div class="preloader-backdrop-blur"></div>
+        <div class="preloader-content">
+          <div class="ball-jump-stage">
+            <div class="ball-glow-aura"></div>
+            <div class="jumping-ball-wrapper">
+              <div class="jumping-ball">
+                <span class="ball-specular"></span>
+              </div>
+            </div>
+            <div class="ball-ground">
+              <div class="ball-shadow"></div>
+              <div class="ground-ripple ground-ripple-1"></div>
+              <div class="ground-ripple ground-ripple-2"></div>
+              <div class="ground-ripple ground-ripple-3"></div>
+              <div class="kinetic-dots">
+                <span class="k-dot k-dot-1"></span>
+                <span class="k-dot k-dot-2 active"></span>
+                <span class="k-dot k-dot-3"></span>
+              </div>
+            </div>
+          </div>
+          <div class="preloader-meta">
+            <div class="preloader-brand">
+              <span class="brand-text">STACKLY</span>
+              <span class="brand-badge">SOLUTIONS</span>
+            </div>
+            <div class="preloader-bar-wrap">
+              <div class="preloader-bar" id="preloaderProgressBar"></div>
+            </div>
+            <div class="preloader-status">
+              <span class="status-msg" id="preloaderStatusText">Loading experiences...</span>
+              <span class="status-percent" id="preloaderPercent">0%</span>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.prepend(preloader);
+    }
+
+    if (!preloader) return;
+
+    document.body.classList.add('preloader-active');
+
+    const progressBar = document.getElementById('preloaderProgressBar');
+    const percentText = document.getElementById('preloaderPercent');
+    const statusText = document.getElementById('preloaderStatusText');
+
+    let currentProgress = 0;
+    let isDismissed = false;
+    const startTime = performance.now();
+    const targetDuration = 1250; 
+
+    function updateProgress(now) {
+      if (isDismissed) return;
+      const elapsed = now - startTime;
+      const progress = Math.min(Math.floor((elapsed / targetDuration) * 100), 100);
+
+      if (progress > currentProgress) {
+        currentProgress = progress;
+        if (progressBar) progressBar.style.width = currentProgress + '%';
+        if (percentText) percentText.textContent = currentProgress + '%';
+
+        if (statusText) {
+          if (currentProgress > 75) {
+            statusText.textContent = 'Welcome to Stackly';
+          } else if (currentProgress > 40) {
+            statusText.textContent = 'Optimizing workspace...';
+          }
+        }
+      }
+
+      if (currentProgress < 100) {
+        requestAnimationFrame(updateProgress);
+      } else {
+        triggerDismissal();
+      }
+    }
+
+    requestAnimationFrame(updateProgress);
+
+    function triggerDismissal() {
+      if (isDismissed) return;
+      isDismissed = true;
+
+      if (progressBar) progressBar.style.width = '100%';
+      if (percentText) percentText.textContent = '100%';
+      if (statusText) statusText.textContent = 'Welcome to Stackly';
+
+      
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        document.body.classList.remove('preloader-active');
+        document.body.style.overflow = '';
+
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 400);
+      }, 120);
+    }
+
+    
+    window.addEventListener('load', () => {
+      const elapsed = performance.now() - startTime;
+      const remainingTime = Math.max(0, 1000 - elapsed);
+      setTimeout(() => {
+        if (!isDismissed) triggerDismissal();
+      }, remainingTime);
+    });
+
+    
+    setTimeout(() => {
+      if (!isDismissed) {
+        triggerDismissal();
+      }
+    }, 1800);
+
+    
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted && preloader) {
+        preloader.style.display = 'none';
+        document.body.classList.remove('preloader-active');
+      }
+    });
+  }
+
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStacklyPreloader);
+  } else {
+    initStacklyPreloader();
+  }
 
 document.addEventListener('DOMContentLoaded', () => {
  
@@ -1281,9 +1422,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => goToSlide(slideIndex));
   });
 
-  /* ==========================================================================
-     STACKLY ENTERPRISE AUTHENTICATION & REDIRECTION SYSTEM
-     ========================================================================== */
   const roleCards = document.querySelectorAll('.role-card');
   const selectedRoleInput = document.getElementById('selectedRole');
   if (roleCards.length > 0 && selectedRoleInput) {
@@ -1588,11 +1726,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 (function() {
-/**
- * STACKLY - Enterprise Dashboards Interactive JavaScript
- * Client & Admin Portal functionality, mobile drawer toggle, tab navigation,
- * dynamic session hydration, chart simulations, data filter and chat widget
- */
+
 
 document.addEventListener('DOMContentLoaded', () => {
  

@@ -1,6 +1,4 @@
-/* --------------------------------------------------------------------------
-   1. CSS Variables & Theme Tokens
-   -------------------------------------------------------------------------- */
+
 :root {
   --primary: #ff4a17;
   --primary-hover: #e03b0a;
@@ -33,9 +31,6 @@
   --shadow-primary: 0 12px 30px rgba(255, 74, 23, 0.35);
 }
 
-/* --------------------------------------------------------------------------
-   2. Reset & Global Base
-   -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -136,9 +131,6 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 36px;
 }
 
-/* --------------------------------------------------------------------------
-   3. Consen Signature Buttons & Badges
-   -------------------------------------------------------------------------- */
 .dtbtn {
   display: inline-flex;
   align-items: center;
@@ -499,9 +491,6 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--primary);
 }
 
-/* --------------------------------------------------------------------------
-   4. Floating Shapes & Consen Visual Accents
-   -------------------------------------------------------------------------- */
 .shape-cross {
   position: absolute;
   color: rgba(255, 255, 255, 0.15);
@@ -589,9 +578,6 @@ h1, h2, h3, h4, h5, h6 {
   animation: bounce-animate3 5s ease-in-out infinite;
 }
 
-/* --------------------------------------------------------------------------
-   5. Header & Navigation (Consen Style)
-   -------------------------------------------------------------------------- */
 .site-header {
   position: fixed;
   top: 0;
@@ -908,9 +894,6 @@ h1, h2, h3, h4, h5, h6 {
   display: none !important;
 }
 
-/* --------------------------------------------------------------------------
-   6. Hero Section (Strict Consen Multipurpose Replica)
-   -------------------------------------------------------------------------- */
 .hero-consen-section {
   position: relative;
   background-color: var(--dark-bg);
@@ -1154,9 +1137,6 @@ h1, h2, h3, h4, h5, h6 {
   fill: #fbfcfe;
 }
 
-/* --------------------------------------------------------------------------
-   7. 4-Service Cards Section (Exact Image 2 Replica with Hover Animation)
-   -------------------------------------------------------------------------- */
 .services-section {
   position: relative;
   background-color: #fbfcfe;
@@ -1450,9 +1430,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(90deg) scale(1.15);
 }
 
-/* --------------------------------------------------------------------------
-   8. About & Value Section (Dual Oval Capsules - Image 3 Replica)
-   -------------------------------------------------------------------------- */
 .about-consen-section {
   position: relative;
   background-color: var(--dark-bg);
@@ -1639,9 +1616,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-light-muted);
 }
 
-/* --------------------------------------------------------------------------
-   9. CEO / Leadership Quote Section
-   -------------------------------------------------------------------------- */
 .ceo-quote-section {
   position: relative;
   background-color: #fbfcfe;
@@ -1740,9 +1714,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
 }
 
-/* --------------------------------------------------------------------------
-   10. Case Studies / Portfolio Carousel (Image 4 Replica)
-   -------------------------------------------------------------------------- */
 .case-studies-section {
   position: relative;
   background-color: var(--dark-bg);
@@ -1954,9 +1925,6 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--primary);
 }
 
-/* --------------------------------------------------------------------------
-   11. Why Choose Us (4 Diamond/Perspective Process Cards - Image 5 Replica)
-   -------------------------------------------------------------------------- */
 .process-section {
   position: relative;
   background-color: #fbfcfe;
@@ -2061,9 +2029,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-dark-muted);
 }
 
-/* --------------------------------------------------------------------------
-   12. Brand Partners Marquee Strip (Image 5 Bottom Replica)
-   -------------------------------------------------------------------------- */
 .brand-marquee-section {
   border-top: 1px solid var(--light-border);
   padding: 40px 0 20px;
@@ -2129,9 +2094,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary);
 }
 
-/* --------------------------------------------------------------------------
-   13. Capability Progress Bars & Experience
-   -------------------------------------------------------------------------- */
 .capability-section {
   position: relative;
   background-color: var(--dark-bg);
@@ -2228,9 +2190,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-lg);
 }
 
-/* --------------------------------------------------------------------------
-   14. Latest Insights / Blog News Grid
-   -------------------------------------------------------------------------- */
 .blog-consen-section {
   position: relative;
   background-color: #fbfcfe;
@@ -2411,9 +2370,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-dark);
 }
 
-/* ==========================================================================
-   Blog Spotlight Card (Featured Article)
-   ========================================================================== */
 .blog-spotlight-card {
   background: #0f1833;
   border: 1px solid var(--primary);
@@ -2508,9 +2464,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(6px);
 }
 
-/* --------------------------------------------------------------------------
-   15. Newsletter Bar & Consen Footer
-   -------------------------------------------------------------------------- */
 .site-footer {
   position: relative;
   background-color: #050917;
@@ -2749,9 +2702,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 15px 35px rgba(255, 74, 23, 0.5);
 }
 
-/* --------------------------------------------------------------------------
-   16. Inner Page Hero Banner & Breadcrumbs
-   -------------------------------------------------------------------------- */
 .page-hero-banner {
   position: relative;
   background-color: #070d1e;
@@ -2844,9 +2794,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* --------------------------------------------------------------------------
-   17. Team Grid & Leadership Cards
-   -------------------------------------------------------------------------- */
 .team-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2943,9 +2890,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* --------------------------------------------------------------------------
-   18. Forms, Modals & Dashboards (Get Started, Sign In, Dashboards)
-   -------------------------------------------------------------------------- */
 
 .auth-page-wrap {
   min-height: 100vh;
@@ -3325,9 +3269,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 25px rgba(255, 74, 23, 0.7);
 }
 
-/* --------------------------------------------------------------------------
-   19. Ultra-Modern Scroll Animations, Zoom & 3D Transitions
-   -------------------------------------------------------------------------- */
 .animate-fade-up {
   opacity: 0;
   transform: translateY(38px);
@@ -3420,9 +3361,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* --------------------------------------------------------------------------
-   19.5 Frequently Asked Questions (FAQ) Section Styles
-   -------------------------------------------------------------------------- */
 .faq-section {
   position: relative;
   overflow: hidden;
@@ -3741,9 +3679,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* --------------------------------------------------------------------------
-   20. Responsive Breakpoints (100% Mobile, iPhone & Tablet Perfect)
-   -------------------------------------------------------------------------- */
 @media (max-width: 1199px) {
   .section-title {
     font-size: 2.2rem;
@@ -3940,13 +3875,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ==========================================================================
-   ADVANCED INTERACTIVE UI COMPONENTS (FOR INNER PAGES)
-   ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   1. FlexCarousel (Liquid Expanding Hover / Focus Accordion)
-   -------------------------------------------------------------------------- */
 .flex-carousel-wrap {
   width: 100%;
   position: relative;
@@ -3955,9 +3884,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 0;
 }
 
-/* --------------------------------------------------------------------------
-   1. Regional Reach Advisory Desks (Expanding Accordion with 100% Even Baseline Alignment)
-   -------------------------------------------------------------------------- */
 .flex-carousel-track {
   display: flex;
   gap: 16px;
@@ -4123,9 +4049,6 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer !important;
 }
 
-/* --------------------------------------------------------------------------
-   2. DepthCarousel (3D Perspective Depth Slider)
-   -------------------------------------------------------------------------- */
 .depth-carousel-container {
   position: relative;
   width: 100%;
@@ -4315,12 +4238,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
 }
 
-/* --------------------------------------------------------------------------
-   3. ScrollStack (Pinned In-Place Deck Animation - "iruka idathukey mela varum")
-   -------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------
-   3. Methodology Stacking Cards (Strictly matched with reference Upcoming Auctions)
-   -------------------------------------------------------------------------- */
 .methodology-section {
   position: relative;
   overflow: visible !important;
@@ -4441,9 +4358,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
-/* --------------------------------------------------------------------------
-   3.5 Enterprise Engagement Matrix & SLA Guarantees (Zero Dropdowns)
-   -------------------------------------------------------------------------- */
 .matrix-container {
   max-width: 1060px;
   margin: 0 auto;
@@ -4767,9 +4681,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 1px;
 }
 
-/* --------------------------------------------------------------------------
-   4. Interactive Photo Stack (Tinder-style Stack with Click Cycle)
-   -------------------------------------------------------------------------- */
 .interactive-photo-stack-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4780,9 +4691,6 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
 }
 
-/* --------------------------------------------------------------------------
-   Heritage & Foundation Highlights Grid (100% Mobile Overflow Proof)
-   -------------------------------------------------------------------------- */
 .heritage-highlights-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -5020,9 +4928,6 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
 }
 
-/* --------------------------------------------------------------------------
-   5. ChromaGrid (Glow Spotlight Interactive Cards)
-   -------------------------------------------------------------------------- */
 .chroma-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -5115,9 +5020,6 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 16px;
 }
 
-/* --------------------------------------------------------------------------
-   6. 3D Flip Cards Section (Full Card Image + Crisp Content + Button-Only Pointer)
-   -------------------------------------------------------------------------- */
 .flip-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -5327,9 +5229,6 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer !important;
 }
 
-/* --------------------------------------------------------------------------
-   6B. Executive Partners Grid (ReactBits ChromaGrid Torchlight / Spotlight Color Reveal)
-   -------------------------------------------------------------------------- */
 .executive-ref-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -5481,9 +5380,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
 }
 
-/* --------------------------------------------------------------------------
-   7. Picture Hover-to-Reveal Cards Gallery
-   -------------------------------------------------------------------------- */
 .reveal-gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -5589,9 +5485,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
-/* --------------------------------------------------------------------------
-   8. Curved Marquee / Circular News Carousel
-   -------------------------------------------------------------------------- */
 .curved-carousel-wrap {
   width: 100%;
   overflow: hidden;
@@ -5649,9 +5542,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 12px;
 }
 
-/* --------------------------------------------------------------------------
-   9. Story / Testimonial Slide Show Cards
-   -------------------------------------------------------------------------- */
 .story-slider-wrap {
   position: relative;
   width: 100%;
@@ -5948,9 +5838,6 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--primary);
 }
 
-/* --------------------------------------------------------------------------
-   10. Strict Mobile / iPhone / Tablet Responsive Safeguards (No Overflow)
-   -------------------------------------------------------------------------- */
 @media (max-width: 991px) {
   .flex-carousel-track {
     flex-direction: column;
@@ -6260,9 +6147,6 @@ img, svg, video, iframe {
   max-width: none; 
 }
 
-/* ==========================================================================
-   CONTACT PAGE ENHANCEMENTS & RESPONSIVE REFINEMENTS
-   ========================================================================== */
 
 
 .service-box:hover a,
@@ -6617,9 +6501,6 @@ select.form-control-light option {
   }
 }
 
-/* ==========================================================================
-   CUSTOM ACCESSIBLE DROPDOWN SELECT (Strict Viewport & Mobile Safe)
-   ========================================================================== */
 .custom-select-box {
   position: relative;
   width: 100%;
@@ -6729,9 +6610,6 @@ select.form-control-light option {
   font-weight: 600;
 }
 
-/* ==========================================================================
-   STACKLY ENTERPRISE AUTH & SPLIT-CARD SYSTEM (SIGNIN & SIGNUP)
-   ========================================================================== */
 .auth-page-body {
   background: #f8fafc;
   min-height: 100vh;
@@ -7390,9 +7268,6 @@ header.auth-navbar .auth-back-btn:hover,
   to { transform: scale(1); opacity: 1; }
 }
 
-/* ==========================================================================
-   STACKLY DASHBOARD ARCHITECTURE (ADMIN & CUSTOMER)
-   ========================================================================== */
 header.dash-navbar,
 .dash-navbar {
   position: sticky !important;
@@ -8354,9 +8229,6 @@ header.dash-navbar,
   border: 1px solid #e2e8f0;
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN & MOBILE OVERFLOW SHIELDS (AUTH & DASHBOARD)
-   ========================================================================== */
 @media (max-width: 1100px) {
   .dash-kpi-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -8689,9 +8561,6 @@ a, button, input, select, textarea, .dtbtn, .service-btn, .case-card-btn, .case-
 }
 
 
-/* ==========================================================================
-   ENHANCED DASHBOARD CARDS HOVER ANIMATIONS & 3D EFFECTS
-   ========================================================================== */
 
 
 .dash-kpi-card {
@@ -8808,10 +8677,6 @@ a, button, input, select, textarea, .dtbtn, .service-btn, .case-card-btn, .case-
   background: rgba(255, 74, 23, 0.03) !important;
 }
 
-
-/* ==========================================================================
-   NOTIFICATION DROPDOWN BULLETPROOF RESPONSIVE LAYOUT FIX
-   ========================================================================== */
 .dash-notif-wrap {
   position: relative !important;
   overflow: visible !important;
@@ -8911,9 +8776,6 @@ a, button, input, select, textarea, .dtbtn, .service-btn, .case-card-btn, .case-
 }
 
 
-/* ==========================================================================
-   MOBILE NAVBAR & ICON SEPARATION FIX
-   ========================================================================== */
 @media (max-width: 991px) {
   header.dash-navbar,
   .dash-navbar {
@@ -8976,9 +8838,6 @@ a, button, input, select, textarea, .dtbtn, .service-btn, .case-card-btn, .case-
   }
 }
 
-/* ==========================================================================
-   RESPONSIVE GRIDS & PREVENT OVERFLOW/OVERLAP ACROSS ALL DASHBOARDS
-   ========================================================================== */
 
 
 .dash-grid-2col {
@@ -10639,3 +10498,411 @@ body {
     font-size: 0.58rem !important;
   }
 }
+
+body.preloader-active {
+  overflow: hidden !important;
+}
+
+.stackly-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #0d1730 0%, #070d1e 75%, #030712 100%);
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.stackly-preloader.fade-out {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: scale(1.04);
+}
+
+.preloader-backdrop-blur {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 45%, rgba(255, 74, 23, 0.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.preloader-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  user-select: none;
+}
+
+
+.ball-jump-stage {
+  position: relative;
+  width: 200px;
+  height: 155px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 26px;
+}
+
+.ball-glow-aura {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 100px;
+  background: radial-gradient(ellipse, rgba(255, 74, 23, 0.28) 0%, rgba(255, 74, 23, 0) 70%);
+  filter: blur(14px);
+  pointer-events: none;
+  animation: auraPulse 0.75s ease-in-out infinite alternate;
+}
+
+
+.jumping-ball-wrapper {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+  animation: ballBouncePhysics 0.75s cubic-bezier(0.28, 0.84, 0.42, 1) infinite alternate;
+  transform-origin: center bottom;
+  z-index: 5;
+}
+
+
+.jumping-ball {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff845b 0%, #ff4a17 55%, #c82e00 100%);
+  box-shadow: 
+    0 10px 25px rgba(255, 74, 23, 0.6),
+    0 0 20px rgba(255, 106, 61, 0.45),
+    inset -4px -6px 12px rgba(0, 0, 0, 0.45),
+    inset 4px 6px 12px rgba(255, 255, 255, 0.55);
+  animation: ballSquashStretch 0.75s cubic-bezier(0.28, 0.84, 0.42, 1) infinite alternate;
+  transform-origin: center bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.ball-specular {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 13px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  transform: rotate(-35deg);
+  filter: blur(0.4px);
+  pointer-events: none;
+}
+
+
+.ball-orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin: -35px 0 0 -35px; 
+  border-radius: 50%;
+  box-sizing: border-box;
+  
+  background: conic-gradient(from 0deg,
+    rgba(255, 255, 255, 0) 0deg,
+    rgba(255, 126, 84, 0.25) 90deg,
+    rgba(255, 126, 84, 0.9) 270deg,
+    #ffffff 360deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px));
+  filter: drop-shadow(0 0 6px rgba(255, 74, 23, 0.7));
+  pointer-events: none;
+  animation: circleRingSpin 1.2s linear infinite;
+  will-change: transform;
+  z-index: 6;
+}
+
+
+.ball-orbit-ring::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px #ffffff, 0 0 14px #ff4a17;
+}
+
+
+.ball-ground {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.ball-shadow {
+  position: absolute;
+  bottom: 12px;
+  width: 48px;
+  height: 14px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.75) 0%, rgba(255, 74, 23, 0.3) 45%, transparent 75%);
+  border-radius: 50%;
+  animation: shadowScalePhysics 0.75s cubic-bezier(0.28, 0.84, 0.42, 1) infinite alternate;
+  transform-origin: center center;
+}
+
+
+.ground-ripple {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 22px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 74, 23, 0.85);
+  box-shadow: 0 0 10px rgba(255, 74, 23, 0.6);
+  transform: translateX(-50%) scale(0.2);
+  opacity: 0;
+  pointer-events: none;
+  animation: groundRippleWave 1.5s cubic-bezier(0.1, 0.6, 0.3, 1) infinite;
+}
+
+.ground-ripple-2 {
+  animation-delay: 0.75s;
+}
+
+.ground-ripple-3 {
+  animation-delay: 0.375s;
+}
+
+
+.kinetic-dots {
+  position: absolute;
+  bottom: -4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.k-dot {
+  width: 8px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  animation: kDotWave 1.5s ease-in-out infinite;
+}
+
+.k-dot-1 {
+  animation-delay: 0.15s;
+}
+
+.k-dot-2 {
+  width: 14px;
+  background: var(--primary, #ff4a17);
+  box-shadow: 0 0 10px var(--primary-glow, rgba(255, 74, 23, 0.6));
+  animation-delay: 0s;
+}
+
+.k-dot-3 {
+  animation-delay: 0.3s;
+}
+
+
+.preloader-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.preloader-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 3px;
+}
+
+.preloader-brand .brand-text {
+  font-family: var(--font-heading, 'Poppins', sans-serif);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 4px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.preloader-brand .brand-badge {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #ff845b;
+  background: rgba(255, 74, 23, 0.14);
+  border: 1px solid rgba(255, 74, 23, 0.35);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.preloader-bar-wrap {
+  width: 180px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  margin-top: 4px;
+}
+
+.preloader-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff4a17 0%, #ff9d6b 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 74, 23, 0.85);
+  transition: width 0.08s ease-out;
+}
+
+.preloader-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.74rem;
+  color: #94a3b8;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.preloader-status .status-percent {
+  color: #ff845b;
+  font-weight: 700;
+  font-family: var(--font-heading, 'Poppins', sans-serif);
+}
+
+
+@keyframes ballBouncePhysics {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-72px);
+  }
+}
+
+@keyframes ballSquashStretch {
+  0% {
+    
+    transform: scale(1.35, 0.65);
+  }
+  22% {
+    
+    transform: scale(0.85, 1.25);
+  }
+  75% {
+    
+    transform: scale(1.02, 0.98);
+  }
+  100% {
+    
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes shadowScalePhysics {
+  0% {
+    transform: scale(1.35, 1);
+    opacity: 0.92;
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(0.35, 0.35);
+    opacity: 0.15;
+    filter: blur(8px);
+  }
+}
+
+@keyframes groundRippleWave {
+  0% {
+    transform: translateX(-50%) scale(0.2);
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(-50%) scale(3.2);
+    opacity: 0;
+  }
+}
+
+@keyframes circleRingSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes auraPulse {
+  0% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(0.9);
+  }
+  100% {
+    opacity: 0.95;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+@keyframes kDotWave {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 1;
+    background: #ff845b;
+  }
+}
+
+
+
+.ball-orbit-ring { display: none !important; }
+

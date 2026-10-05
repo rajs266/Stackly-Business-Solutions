@@ -22,9 +22,44 @@
 </head>
 <body>
 
-  <!-- =========================================================================
-       1. HEADER / NAVIGATION (Consen Transparent Sticky Menu)
-       ========================================================================= -->
+  <div id="stackly-preloader" class="stackly-preloader" aria-hidden="true">
+    <div class="preloader-backdrop-blur"></div>
+    <div class="preloader-content">
+      <div class="ball-jump-stage">
+        <div class="ball-glow-aura"></div>
+        <div class="jumping-ball-wrapper">
+          <div class="jumping-ball">
+            <span class="ball-specular"></span>
+          </div>
+        </div>
+        <div class="ball-ground">
+          <div class="ball-shadow"></div>
+          <div class="ground-ripple ground-ripple-1"></div>
+          <div class="ground-ripple ground-ripple-2"></div>
+          <div class="ground-ripple ground-ripple-3"></div>
+          <div class="kinetic-dots">
+            <span class="k-dot k-dot-1"></span>
+            <span class="k-dot k-dot-2 active"></span>
+            <span class="k-dot k-dot-3"></span>
+          </div>
+        </div>
+      </div>
+      <div class="preloader-meta">
+        <div class="preloader-brand">
+          <span class="brand-text">STACKLY</span>
+          <span class="brand-badge">SOLUTIONS</span>
+        </div>
+        <div class="preloader-bar-wrap">
+          <div class="preloader-bar" id="preloaderProgressBar"></div>
+        </div>
+        <div class="preloader-status">
+          <span class="status-msg" id="preloaderStatusText">Loading experiences...</span>
+          <span class="status-percent" id="preloaderPercent">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container header-container">
       
@@ -95,9 +130,6 @@
     </a>
   </aside>
 
-  <!-- =========================================================================
-       2. HERO SECTION (Consen Signature Triple Oval Capsules - Completely Stationary)
-       ========================================================================= -->
   <section class="hero-consen-section">
     
     <div class="shape-cross" style="top: 15%; left: 4%; font-size: 24px;">+ + +<br>+ + +</div>
@@ -174,9 +206,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       3. 4-SERVICE CARDS SECTION (EXACT IMAGE 2 REPLICA - CRISP CONCISE CONTENT)
-       ========================================================================= -->
   <section class="services-section bg-light-pattern">
     <div class="container">
       
@@ -269,9 +298,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       4. ABOUT & VALUE SECTION (DUAL OVAL CAPSULES - EXACT IMAGE 3 REPLICA)
-       ========================================================================= -->
   <section class="about-consen-section">
     
     <div class="shape-cross orange" style="top: 18%; right: 12%; font-size: 20px;">+ + +<br>+ + +</div>
@@ -366,9 +392,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       5. CEO / LEADERSHIP QUOTE SECTION (Clean & Concise)
-       ========================================================================= -->
   <section class="ceo-quote-section bg-light-pattern">
     <div class="container">
       <div class="ceo-grid">
@@ -415,9 +438,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       6. CASE STUDIES / PORTFOLIO CAROUSEL (EXACT IMAGE 4 REPLICA)
-       ========================================================================= -->
   <section class="case-studies-section">
     
     <div class="shape-cross" style="top: 20%; left: 6%; font-size: 24px;">✕ ✕<br>✕ ✕</div>
@@ -491,9 +511,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       7. WHY CHOOSE US (4 PROCESS CARDS - EXACT IMAGE 5 REPLICA)
-       ========================================================================= -->
   <section class="process-section bg-light-pattern">
     <div class="container">
       <div class="process-grid">
@@ -585,9 +602,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       8. CAPABILITY PROGRESS BARS
-       ========================================================================= -->
   <section class="capability-section">
     <div class="container">
       <div class="capability-grid">
@@ -651,9 +665,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       9. LATEST INSIGHTS / BLOG NEWS
-       ========================================================================= -->
   <section class="blog-consen-section bg-light-pattern">
     <div class="container">
       <div class="blog-header-row">
@@ -754,9 +765,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       10. FREQUENTLY ASKED QUESTIONS (FAQ) SECTION
-       ========================================================================= -->
   <section class="faq-section bg-light-pattern section-padding">
     <div class="container">
       <div class="faq-grid">
@@ -859,9 +867,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       11. NEWSLETTER & CONSEN MULTI-COLUMN FOOTER
-       ========================================================================= -->
   <footer class="site-footer">
     <div class="container">
       
@@ -963,9 +968,6 @@
     </div>
   </footer>
 
-  <!-- =========================================================================
-       11. VIDEO MODAL POPUP (assets/hero vid.mp4)
-       ========================================================================= -->
   <div class="video-modal-backdrop" id="videoModal">
     <div class="video-modal-container">
       <button class="video-modal-close" aria-label="Close Video"><i class="fa-solid fa-xmark"></i></button>
