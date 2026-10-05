@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Stackly Business Solutions - Salem Corporate Advisory</title>
+    <link rel="icon" type="image/webp" href="assets/top-logo.webp">
+    <link rel="apple-touch-icon" href="assets/top-logo.webp">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page-body">
+
+    
+    <header class="auth-navbar">
+        <a href="index.html" class="auth-logo" title="Stackly Business Solutions">
+            <img src="assets/logo.webp" alt="Stackly Logo">
+        </a>
+        <a href="index.html" class="auth-back-btn">
+            <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+        </a>
+    </header>
+
+    
+    <main class="auth-main-wrapper">
+        <div class="auth-split-card">
+            
+            
+            <div class="auth-showcase-panel">
+                <div>
+                    <div class="live-badge-row">
+                        <span class="live-pulse-badge">
+                            <span class="live-pulse-dot"></span> SALEM ADVISORY DESK &bull; LIVE SESSION
+                        </span>
+                        <span style="font-size: 0.72rem; color: #cbd5e1; font-weight: 700; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 6px;">HQ COMPLEX</span>
+                    </div>
+                    <h2 style="font-size: 1.65rem; line-height: 1.25; margin: 4px 0 6px; font-weight: 700; color: #ffffff;">
+                        Enterprise Advisory Portal
+                    </h2>
+                    <p style="color: #cbd5e1; font-size: 0.86rem; line-height: 1.45; margin: 0 0 10px;">
+                        Direct access to corporate tax audits, statutory GST reconciliations, and executive board reviews.
+                    </p>
+                </div>
+
+                
+                <div class="hero-lot-frame">
+                    <img src="assets/contact-meeting.webp" alt="Stackly Salem Executive Chambers">
+                    <div class="hero-lot-overlay">
+                        <span style="font-size: 0.7rem; color: #ff916e; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Salem HQ &bull; Chartered Accountancy Practice</span>
+                        <h4 style="font-size: 1.05rem; margin: 2px 0 0; color: #ffffff;">Executive Chamber &amp; Partner Desk</h4>
+                    </div>
+                </div>
+
+                
+                <div class="live-bid-stream-card">
+                    <div class="bid-stream-header">
+                        <span><i class="fas fa-shield-halved" style="color: #10b981; margin-right: 5px;"></i> Active Partner Desks: 7 Online</span>
+                        <strong style="color: #ff916e; font-size: 0.85rem;">Retainers: ₹24.8 Cr</strong>
+                    </div>
+                    <div class="bid-feed-list">
+                        <div class="bid-feed-item winning">
+                            <span><i class="fas fa-check-circle"></i> GST Sec 73 Clearance (Salem Steel)</span>
+                            <strong>₹4.2 Cr Saved</strong>
+                        </div>
+                        <div class="bid-feed-item">
+                            <span><i class="fas fa-file-signature"></i> Statutory Audit Certified (Apex Group)</span>
+                            <strong>FY25-26 Filed</strong>
+                        </div>
+                        <div class="bid-feed-item">
+                            <span><i class="fas fa-bolt"></i> Transfer Pricing Study (Tier-1 IT Client)</span>
+                            <strong>Board Approved</strong>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 0.75rem; color: #cbd5e1; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px;">
+                    <div><i class="fas fa-award" style="color: #ff916e; display: block; font-size: 1.1rem; margin-bottom: 4px;"></i> ICAI Standard</div>
+                    <div><i class="fas fa-shield-alt" style="color: #10b981; display: block; font-size: 1.1rem; margin-bottom: 4px;"></i> 256-bit Encrypted</div>
+                    <div><i class="fas fa-building" style="color: #38bdf8; display: block; font-size: 1.1rem; margin-bottom: 4px;"></i> Salem HQ Direct</div>
+                </div>
+            </div>
+
+            
+            <div class="auth-form-panel">
+                <div class="auth-header-copy">
+                    <span class="eyebrow dark" style="margin-bottom: 4px; display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--primary); letter-spacing: 1px;">ENTERPRISE PASSPORT</span>
+                    <h2>Welcome Back</h2>
+                    <p>Select your account role and enter your credentials to proceed.</p>
+                </div>
+
+                
+                <div class="role-select-section">
+                    <span class="role-select-label">Select Account Role:</span>
+                    <div class="role-select-grid">
+                        
+                        
+                        <div class="role-card active" data-role="corporate" id="roleCorporate">
+                            <div class="role-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="role-text">
+                                <h4>Corporate Client</h4>
+                                <p>Financial Audits &amp; Workspace</p>
+                            </div>
+                            <div class="role-card-check">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+
+                        
+                        <div class="role-card" data-role="admin" id="roleAdmin">
+                            <div class="role-icon">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div class="role-text">
+                                <h4>Partner / Admin</h4>
+                                <p>Practice Ops &amp; Filings</p>
+                            </div>
+                            <div class="role-card-check">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="auth-social-title" style="text-align:center; font-size:0.82rem; font-weight:700; color:#64748b; letter-spacing:0.6px; text-transform:uppercase; margin-bottom:10px;">Quick Sign In With</div>
+                <div class="social-auth-grid">
+                    <a href="404.html" class="social-auth-btn" title="Sign in with Google">
+                        <i class="fab fa-google" style="color: #ea4335;"></i> <span>Google</span>
+                    </a>
+                    <a href="404.html" class="social-auth-btn" title="Sign in with Microsoft 365">
+                        <i class="fab fa-microsoft" style="color: #00a4ef;"></i> <span>Microsoft</span>
+                    </a>
+                    <a href="404.html" class="social-auth-btn" title="Sign in with LinkedIn">
+                        <i class="fab fa-linkedin-in" style="color: #0077b5;"></i> <span>LinkedIn</span>
+                    </a>
+                </div>
+
+                <div class="auth-divider">Or continue with credentials</div>
+
+                
+                <form id="signinForm" novalidate>
+                    <input type="hidden" id="selectedRole" name="selectedRole" value="corporate">
+
+                    
+                    <div class="form-input-box" id="nameBox">
+                        <div class="input-field-wrap">
+                            <input type="text" id="signinName" class="form-input" placeholder=" " required autocomplete="name">
+                            <label for="signinName" class="floating-label">Full Name</label>
+                            <div class="focus-line"></div>
+                        </div>
+                        <div class="error-msg" id="nameError"></div>
+                    </div>
+
+                    
+                    <div class="form-input-box" id="emailBox">
+                        <div class="input-field-wrap">
+                            <input type="email" id="signinEmail" class="form-input" placeholder=" " required autocomplete="email">
+                            <label for="signinEmail" class="floating-label">Corporate Email Address</label>
+                            <div class="focus-line"></div>
+                        </div>
+                        <div class="error-msg" id="emailError"></div>
+                    </div>
+
+                    
+                    <div class="form-input-box" id="passwordBox">
+                        <div class="input-field-wrap" style="position: relative;">
+                            <input type="password" id="signinPassword" class="form-input" placeholder=" " required autocomplete="current-password">
+                            <label for="signinPassword" class="floating-label">Password</label>
+                            <button type="button" class="password-toggle-btn" id="togglePassword" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <div class="focus-line"></div>
+                        </div>
+                        <div class="error-msg" id="passwordError"></div>
+                    </div>
+
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0 18px; font-size: 0.86rem;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: normal; color: var(--text-dark, #0f172a); cursor: pointer; margin: 0;">
+                            <input type="checkbox" id="rememberMe" style="accent-color: var(--primary); width: 16px; height: 16px;">
+                            Remember credentials
+                        </label>
+                        <a href="404.html" style="color: var(--primary); font-weight: 600; text-decoration: none;" title="Recover password">
+                            Forgot Password?
+                        </a>
+                    </div>
+
+                    
+                    <button type="submit" class="dtbtn" style="width: 100%; padding: 14px; font-size: 1rem; border-radius: 12px; font-weight: 700; justify-content: center; cursor: pointer; border: none;">
+                        <span>Enter Dashboard</span> <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </button>
+                </form>
+
+                
+                <p style="text-align: center; margin-top: 22px; font-size: 0.9rem; color: var(--text-dark, #0f172a);">
+                    Don't have an accredited enterprise portal? 
+                    <a href="get-started.html" style="color: var(--primary); font-weight: 700; text-decoration: none;">
+                        Register Here
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    
+    <footer class="auth-minimal-footer">
+        &copy; 2026 Stackly Business Solutions. Salem Corporate Headquarters &bull; Secured by Enterprise SSL 256-Bit Encryption.
+    </footer>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>

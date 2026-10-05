@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Resource Not Found | Stackly Business Solutions</title>
+  
+  <link rel="icon" type="image/webp" href="assets/top-logo.webp">
+  <link rel="apple-touch-icon" href="assets/top-logo.webp">
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden !important;
+      background-color: #070d1e;
+      font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+    }
+
+    .error-viewport {
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    
+    .glow-orb-primary {
+      position: absolute;
+      top: 15%;
+      left: 20%;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(255, 74, 23, 0.22) 0%, rgba(255, 74, 23, 0) 70%);
+      filter: blur(80px);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatOrb1 9s ease-in-out infinite alternate;
+    }
+
+    .glow-orb-secondary {
+      position: absolute;
+      bottom: 12%;
+      right: 18%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0) 70%);
+      filter: blur(80px);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatOrb2 11s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatOrb1 {
+      0% { transform: translate(-30px, -20px) scale(0.95); }
+      100% { transform: translate(30px, 30px) scale(1.1); }
+    }
+
+    @keyframes floatOrb2 {
+      0% { transform: translate(25px, 20px) scale(1); }
+      100% { transform: translate(-25px, -30px) scale(1.15); }
+    }
+
+    .error-card {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 36px 30px;
+      background: rgba(13, 21, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-sizing: border-box;
+      animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes cardEntrance {
+      0% { opacity: 0; transform: translateY(24px) scale(0.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .error-logo-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .error-logo-link:hover {
+      transform: scale(1.06);
+    }
+
+    .error-logo-link img {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+
+    
+    .error-digits {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: clamp(4.5rem, 14vw, 7.5rem);
+      font-weight: 900;
+      line-height: 1;
+      margin: 0;
+      background: linear-gradient(135deg, #ffffff 0%, #ff4a17 55%, #ffa040 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -2px;
+      animation: floatDigits 4s ease-in-out infinite;
+      display: inline-block;
+      position: relative;
+    }
+
+    @keyframes floatDigits {
+      0%, 100% { transform: translateY(0); filter: drop-shadow(0 10px 25px rgba(255, 74, 23, 0.35)); }
+      50% { transform: translateY(-12px); filter: drop-shadow(0 20px 40px rgba(255, 74, 23, 0.6)); }
+    }
+
+    .error-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 74, 23, 0.12);
+      border: 1px solid rgba(255, 74, 23, 0.3);
+      color: #ff4a17;
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 12px 0 16px;
+    }
+
+    .error-title {
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .error-desc {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0 0 28px;
+      padding: 0 10px;
+    }
+
+    
+    .error-btn-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .error-btn-group .dtbtn {
+      padding: 12px 28px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border-radius: 50px;
+      min-width: 155px;
+      justify-content: center;
+    }
+
+    @media (max-width: 576px) {
+      .error-card {
+        padding: 28px 20px;
+      }
+      .error-btn-group {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+      }
+      .error-btn-group .dtbtn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="error-viewport">
+    
+    <div class="glow-orb-primary"></div>
+    <div class="glow-orb-secondary"></div>
+
+    <div class="error-card">
+      
+      <a href="index.html" class="error-logo-link" title="Stackly Home">
+        <img src="assets/logo.webp" alt="Stackly Business Solutions">
+      </a>
+
+      <div>
+        <h1 class="error-digits">404</h1>
+      </div>
+
+      <div>
+        <span class="error-badge">
+          <i class="fa-solid fa-triangle-exclamation"></i> Advisory Route Not Found
+        </span>
+      </div>
+
+      <h2 class="error-title">Corporate Resource Unavailable</h2>
+      <p class="error-desc">
+        The advisory filing, confidential dossier, or portal route you requested has been relocated or requires accredited authorization.
+      </p>
+
+      
+      <div class="error-btn-group">
+        <button type="button" onclick="window.history.back()" class="dtbtn dtbtn-outline">
+          <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Go Back
+        </button>
+        <a href="index.html" class="dtbtn">
+          <i class="fa-solid fa-house" style="margin-right: 8px;"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

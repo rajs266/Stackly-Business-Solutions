@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard | Stackly Business Solutions - Client Workspace</title>
+    <link rel="icon" type="image/webp" href="assets/top-logo.webp">
+    <link rel="apple-touch-icon" href="assets/top-logo.webp">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+        .chat-widget-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff4a17 0%, #ff7d52 100%);
+            color: #ffffff;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(255, 74, 23, 0.4);
+            font-family: inherit;
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s ease;
+        }
+        .chat-widget-toggle:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 14px 30px rgba(255, 74, 23, 0.5);
+        }
+        .chat-widget-box {
+            position: fixed;
+            bottom: 95px;
+            right: 30px;
+            width: 360px;
+            height: 480px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+        .chat-widget-box.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .chat-header {
+            background: #070d1e;
+            color: #ffffff;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 18px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            background: #f8fafc;
+        }
+        .chat-input-form {
+            padding: 12px 16px;
+            border-top: 1px solid #e2e8f0;
+            background: #ffffff;
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body style="background: #f8fafc; min-height: 100vh; display: flex; flex-direction: column; margin: 0; overflow-x: clip;">
+
+    
+    <header class="dash-navbar">
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <button class="dash-sidebar-toggle" id="dashSidebarToggle" aria-label="Toggle Side Menu" title="Open Navigation Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="index.html" class="dash-logo" title="Stackly Business Solutions">
+                <img src="assets/logo.webp" alt="Stackly Logo">
+            </a>
+        </div>
+
+        <div class="dash-nav-actions">
+            <a href="index.html" class="dash-home-btn" title="Back to Website">
+                <i class="fas fa-home"></i> <span>Home</span>
+            </a>
+            
+            
+            <div class="dash-notif-wrap">
+                <button class="dash-bell-btn" id="dashBellBtn" title="Client Advisory Alerts" aria-label="Client Advisory Alerts">
+                    <i class="fas fa-bell"></i>
+                    <span class="bell-badge-pulse">3</span>
+                </button>
+                <div class="dash-notif-dropdown" id="dashNotifDropdown">
+                    <div class="notif-header">
+                        <strong style="font-size: 0.88rem; color: var(--text-dark, #0f172a);">Workspace Notices (3)</strong>
+                        <a href="404.html" style="font-size: 0.72rem; color: var(--primary); font-weight: 700; text-decoration: none;">Mark all read</a>
+                    </div>
+                    <div class="notif-body">
+                        <a href="404.html" class="notif-item">
+                            <i class="fas fa-file-pdf" style="color: #10b981; font-size: 1.1rem; margin-top: 2px;"></i>
+                            <div>
+                                <strong style="display: block; font-size: 0.82rem; color: var(--text-dark, #0f172a);">Tax Audit Report Uploaded</strong>
+                                <p style="font-size: 0.74rem; color: #64748b; margin: 2px 0 0;">Certified Form 3CD now accessible in your Encrypted Vault.</p>
+                                <span style="font-size: 0.68rem; color: #94a3b8;">5 minutes ago</span>
+                            </div>
+                        </a>
+                        <a href="404.html" class="notif-item">
+                            <i class="fas fa-circle-check" style="color: #3b82f6; font-size: 1.1rem; margin-top: 2px;"></i>
+                            <div>
+                                <strong style="display: block; font-size: 0.82rem; color: var(--text-dark, #0f172a);">GST Return Reconciled</strong>
+                                <p style="font-size: 0.74rem; color: #64748b; margin: 2px 0 0;">Q3 GSTR-3B accepted with zero tax discrepancy.</p>
+                                <span style="font-size: 0.68rem; color: #94a3b8;">2 hours ago</span>
+                            </div>
+                        </a>
+                        <a href="404.html" class="notif-item">
+                            <i class="fas fa-calendar-check" style="color: var(--primary); font-size: 1.1rem; margin-top: 2px;"></i>
+                            <div>
+                                <strong style="display: block; font-size: 0.82rem; color: var(--text-dark, #0f172a);">Advance Tax Reminder</strong>
+                                <p style="font-size: 0.74rem; color: #64748b; margin: 2px 0 0;">FY25-26 4th installment challan prepared for payment.</p>
+                                <span style="font-size: 0.68rem; color: #94a3b8;">Yesterday</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="notif-footer">
+                        <a href="404.html" class="notif-footer-link">View All Notifications <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="dash-sidebar-backdrop" id="dashSidebarBackdrop"></div>
+
+    
+    <div class="dash-app-shell">
+        
+        
+        <aside class="dash-sidebar-dock">
+            <div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid #e2e8f0;">
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 800; flex-shrink: 0; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35); border: 2px solid #ffffff;" id="userAvatar">A</div>
+                    <div style="overflow: hidden;">
+                        <strong style="display: block; font-size: 0.95rem; color: var(--text-dark, #0f172a); white-space: nowrap; text-overflow: ellipsis; overflow: hidden;" id="sideUserName">Anandha Krishnan</strong>
+                        <span style="font-size: 0.74rem; color: #64748b; display: block; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;" id="sideUserEmail">anand@enterprisegroup.com</span>
+                        <span style="font-size: 0.68rem; font-weight: 700; color: #10b981; background: #ecfdf5; padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <i class="fas fa-crown" style="color: #f59e0b; font-size: 0.65rem;"></i> Corporate VIP Client
+                        </span>
+                    </div>
+                </div>
+
+                
+                <ul class="dashboard-sidebar-menu">
+                    <li>
+                        <a href="javascript:void(0)" class="active" data-tab="overview">
+                            <i class="fas fa-th-large" style="width: 20px;"></i> Overview &amp; Status
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-tab="chambers">
+                            <i class="fas fa-landmark" style="width: 20px;"></i> Executive Chambers &amp; Partners
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-tab="engagements">
+                            <i class="fas fa-briefcase" style="width: 20px;"></i> Advisory Engagements (3)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-tab="vault">
+                            <i class="fas fa-vault" style="width: 20px;"></i> Encrypted Tax Vault (8)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-tab="calendar">
+                            <i class="fas fa-calendar-alt" style="width: 20px;"></i> Compliance Calendar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-tab="billing">
+                            <i class="fas fa-file-invoice-dollar" style="width: 20px;"></i> Retainers &amp; Invoices
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div style="border-top: 1px solid #e2e8f0; padding-top: 16px; margin-top: 20px;">
+                <a href="javascript:void(0)" class="dash-logout-trigger" style="display: flex; align-items: center; gap: 12px; color: #ef4444; text-decoration: none; font-weight: 600; font-size: 0.9rem; padding: 10px 14px; border-radius: 10px; transition: all 0.2s ease;">
+                    <i class="fas fa-sign-out-alt" style="width: 20px;"></i> Logout Workspace
+                </a>
+            </div>
+        </aside>
+
+        
+        <main class="dash-main-scroll">
+            
+            
+            <div class="dash-title-banner">
+                <div class="dash-banner-flex">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                            <span class="dash-status-pill" style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); color: #34d399;">
+                                <span class="pulse-indicator-emerald"></span> ENCRYPTED ADVISORY SESSION
+                            </span>
+                            <span style="font-size: 0.74rem; color: #cbd5e1; background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 20px;">
+                                <i class="fas fa-shield-alt" style="margin-right: 4px;"></i> 256-bit Encrypted Portal
+                            </span>
+                        </div>
+                        <h1 style="font-size: 1.8rem; margin: 0 0 6px; font-weight: 800; color: #ffffff;">Executive Corporate Workspace</h1>
+                        <p style="color: #cbd5e1; font-size: 0.88rem; margin: 0;">Authorized Executive: <strong style="color: #ff916e;" id="dashUserName">Anandha Krishnan</strong> &bull; Senior Partner in Charge: Vignesh Moorthy (Salem HQ)</p>
+                    </div>
+
+                    <div>
+                        <a href="index.html" class="dtbtn dtbtn-sm" style="border-radius: 10px; padding: 10px 18px; font-size: 0.85rem;">
+                            <i class="fas fa-arrow-left" style="margin-right: 6px;"></i> Live Website
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="dash-content-padding">
+                
+                
+                <div class="dash-tab-pane active" id="tab-overview">
+                    
+                    
+                    <div class="dash-kpi-grid">
+                        <div class="dash-kpi-card kpi-tax">
+                            <div class="dash-kpi-top-row">
+                                <div class="dash-kpi-icon icon-tax"><i class="fa-solid fa-piggy-bank"></i></div>
+                                <span class="kpi-badge-pill success"><i class="fa-solid fa-arrow-trend-down"></i> -3.8% Saved</span>
+                            </div>
+                            <div class="dash-kpi-body">
+                                <h5>Annual Tax Optimization</h5>
+                                <h3 style="color: #ff4a17;">₹42.5 Lakhs</h3>
+                            </div>
+                            <div class="dash-kpi-footer-sub">
+                                <span style="color: #10b981; font-weight: 700;">₹8.4L Saved This FY</span> &bull; <span>Form 3CD Verified</span>
+                            </div>
+                        </div>
+
+                        <div class="dash-kpi-card kpi-gst">
+                            <div class="dash-kpi-top-row">
+                                <div class="dash-kpi-icon icon-gst"><i class="fa-solid fa-shield-halved"></i></div>
+                                <span class="kpi-badge-pill success"><span class="pulse-dot-green"></span> 100% Secure</span>
+                            </div>
+                            <div class="dash-kpi-body">
+                                <h5>Statutory GST Health</h5>
+                                <h3 style="color: #10b981;">100% In Order</h3>
+                            </div>
+                            <div class="dash-kpi-footer-sub">
+                                <span style="color: #10b981; font-weight: 700;">Zero Notices</span> &bull; <span>GSTR-3B Reconciled</span>
+                            </div>
+                        </div>
+
+                        <div class="dash-kpi-card kpi-advance">
+                            <div class="dash-kpi-top-row">
+                                <div class="dash-kpi-icon icon-advance"><i class="fa-solid fa-calendar-check"></i></div>
+                                <span class="kpi-badge-pill warning"><i class="fa-solid fa-clock"></i> Due 15 March</span>
+                            </div>
+                            <div class="dash-kpi-body">
+                                <h5>Advance Tax Due</h5>
+                                <h3 style="color: #f59e0b;">4 Days</h3>
+                            </div>
+                            <div class="dash-kpi-footer-sub">
+                                <span style="color: #f59e0b; font-weight: 700;">Q4 FY25-26</span> &bull; <span>Challan Ready</span>
+                            </div>
+                        </div>
+
+                        <div class="dash-kpi-card kpi-partner">
+                            <div class="dash-kpi-top-row">
+                                <div class="dash-kpi-icon icon-partner">
+                                    <img src="assets/team_vignesh.webp" alt="CA Vignesh Moorthy" title="Senior Partner CA Vignesh Moorthy">
+                                </div>
+                                <span class="kpi-badge-pill info"><i class="fa-solid fa-award"></i> Lead Partner</span>
+                            </div>
+                            <div class="dash-kpi-body">
+                                <h5>Designated Partner</h5>
+                                <h3 style="color: var(--text-dark, #0f172a);">Vignesh M.</h3>
+                            </div>
+                            <div class="dash-kpi-footer-sub">
+                                <span style="color: #3b82f6; font-weight: 700;">Senior CA &bull; FCA</span> &bull; <span>Salem HQ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="dash-grid-2col" style="margin-bottom: 24px;">
+                        
+                        <div class="dash-card-box" style="margin-bottom: 0;">
+                            <div class="dash-card-box-header">
+                                <h4>Ongoing Advisory Engagements</h4>
+                                <span style="font-size: 0.76rem; color: var(--primary); font-weight: 700;">3 Active</span>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">
+                                        <span>Corporate Tax Audit (Form 3CD Preparation)</span>
+                                        <strong style="color: #10b981;">85% Completed</strong>
+                                    </div>
+                                    <div style="height: 8px; background: #f1f5f9; border-radius: 4px; overflow: hidden;">
+                                        <div style="width: 85%; height: 100%; background: #10b981;"></div>
+                                    </div>
+                                    <span style="font-size: 0.72rem; color: #64748b; margin-top: 4px; display: block;">Final ledger verification under Partner review.</span>
+                                </div>
+
+                                <div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">
+                                        <span>Transfer Pricing Benchmark Study</span>
+                                        <strong style="color: #3b82f6;">60% Completed</strong>
+                                    </div>
+                                    <div style="height: 8px; background: #f1f5f9; border-radius: 4px; overflow: hidden;">
+                                        <div style="width: 60%; height: 100%; background: #3b82f6;"></div>
+                                    </div>
+                                    <span style="font-size: 0.72rem; color: #64748b; margin-top: 4px; display: block;">Comparable uncontrolled price (CUP) database analysis underway.</span>
+                                </div>
+
+                                <div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">
+                                        <span>Corporate Restructuring &amp; Demerger</span>
+                                        <strong style="color: var(--primary);">40% Completed</strong>
+                                    </div>
+                                    <div style="height: 8px; background: #f1f5f9; border-radius: 4px; overflow: hidden;">
+                                        <div style="width: 40%; height: 100%; background: var(--primary);"></div>
+                                    </div>
+                                    <span style="font-size: 0.72rem; color: #64748b; margin-top: 4px; display: block;">NCLT Chennai preliminary valuation filing drafted.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-box" style="margin-bottom: 0;">
+                            <div class="dash-card-box-header">
+                                <h4>Quick Partner Actions</h4>
+                                <span style="font-size: 0.74rem; color: #10b981; font-weight: 700; background: #ecfdf5; padding: 2px 8px; border-radius: 6px;"><i class="fa-solid fa-bolt" style="margin-right: 4px;"></i> Direct Line</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <a href="404.html" class="dash-partner-action-item" title="Schedule Video Call with Senior Partner">
+                                    <div class="action-item-left">
+                                        <div class="action-item-icon video">
+                                            <i class="fa-solid fa-video"></i>
+                                        </div>
+                                        <div class="action-item-text">
+                                            <strong>Schedule Partner Video Call</strong>
+                                            <span>Direct consultation with Senior Partner Vignesh</span>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right action-item-arrow"></i>
+                                </a>
+
+                                <a href="404.html" class="dash-partner-action-item download-report-btn" title="Download Board PDF with CA Seal">
+                                    <div class="action-item-left">
+                                        <div class="action-item-icon pdf">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </div>
+                                        <div class="action-item-text">
+                                            <strong>Download FY25-26 Tax Summary</strong>
+                                            <span>Executive Board PDF with CA Seal</span>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-down-to-bracket action-item-arrow"></i>
+                                </a>
+
+                                <a href="404.html" class="dash-partner-action-item" title="Transmit invoices & bank books to encrypted vault">
+                                    <div class="action-item-left">
+                                        <div class="action-item-icon upload">
+                                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                                        </div>
+                                        <div class="action-item-text">
+                                            <strong>Upload Financial Documents</strong>
+                                            <span>Transmit invoices &amp; bank books to encrypted vault</span>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right action-item-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="dash-card-box" style="margin-top: 24px;">
+                        <div class="dash-card-box-header">
+                            <div>
+                                <h4>Salem HQ Advisory Chambers &amp; Lead Counsel</h4>
+                                <span style="font-size: 0.78rem; color: #64748b;">Direct in-person consultation suites &amp; ICAI certified senior tax counsel</span>
+                            </div>
+                            <span class="status-badge-modern success"><i class="fa-solid fa-circle-check"></i> Chambers Active</span>
+                        </div>
+
+                        <div class="dash-grid-2col">
+                            
+                            <div style="position: relative; border-radius: 14px; overflow: hidden; min-height: 220px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                <img src="assets/contact-meeting.webp" alt="Salem Headquarters Chamber Boardroom" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.72);">
+                                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9,14,26,0.15) 0%, rgba(9,14,26,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; color: #ffffff;">
+                                    <span style="font-size: 0.7rem; font-weight: 800; color: #ff916e; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px;">Salem Corporate Chambers &bull; MMR Complex</span>
+                                    <h4 style="color: #ffffff; margin: 0 0 6px; font-size: 1.15rem; font-weight: 700;">Private Client Consultation Suite</h4>
+                                    <p style="color: #cbd5e1; font-size: 0.8rem; margin: 0 0 12px; line-height: 1.4;">Confidential soundproof executive war rooms for statutory audit sign-offs, NCLT restructuring, and scrutiny appeals.</p>
+                                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                        <span style="font-size: 0.72rem; background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 20px; color: #ffffff; white-space: nowrap;"><i class="fa-solid fa-shield-halved" style="color: #34d399; margin-right: 4px;"></i> 256-Bit Encrypted</span>
+                                        <span style="font-size: 0.72rem; background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 20px; color: #ffffff; white-space: nowrap;"><i class="fa-solid fa-clock" style="color: #60a5fa; margin-right: 4px;"></i> 9 AM - 7 PM Available</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+                                <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; transition: all 0.2s ease;">
+                                    <div style="width: 54px; height: 54px; border-radius: 12px; overflow: hidden; flex-shrink: 0; border: 2px solid #3b82f6; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);">
+                                        <img src="assets/team_vignesh.webp" alt="CA Vignesh Moorthy" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <strong style="font-size: 0.88rem; color: #0f172a;">CA Vignesh Moorthy, FCA</strong>
+                                            <span style="font-size: 0.68rem; color: #10b981; font-weight: 700; background: #ecfdf5; padding: 2px 6px; border-radius: 6px;">Managing Partner</span>
+                                        </div>
+                                        <span style="font-size: 0.74rem; color: #64748b; display: block; margin-top: 2px;">Corporate Tax Audits &amp; High-Value Scrutiny Defense</span>
+                                        <span style="font-size: 0.7rem; color: #3b82f6; font-weight: 600; margin-top: 2px; display: block;"><i class="fa-solid fa-envelope" style="margin-right: 4px;"></i> vignesh@stackly.com &bull; Salem HQ</span>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; transition: all 0.2s ease;">
+                                    <div style="width: 54px; height: 54px; border-radius: 12px; overflow: hidden; flex-shrink: 0; border: 2px solid #10b981; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);">
+                                        <img src="assets/team_priya.webp" alt="CA Priya Krishnan" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <strong style="font-size: 0.88rem; color: #0f172a;">CA Priya Krishnan, ACA</strong>
+                                            <span style="font-size: 0.68rem; color: #10b981; font-weight: 700; background: #ecfdf5; padding: 2px 6px; border-radius: 6px;">GST Specialist</span>
+                                        </div>
+                                        <span style="font-size: 0.74rem; color: #64748b; display: block; margin-top: 2px;">Rule 42/43 ITC Reconciliations &amp; Appellate Filings</span>
+                                        <span style="font-size: 0.7rem; color: #10b981; font-weight: 600; margin-top: 2px; display: block;"><i class="fa-solid fa-envelope" style="margin-right: 4px;"></i> priya@stackly.com &bull; Direct Chamber</span>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; transition: all 0.2s ease;">
+                                    <div style="width: 54px; height: 54px; border-radius: 12px; overflow: hidden; flex-shrink: 0; border: 2px solid #3b82f6; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);">
+                                        <img src="assets/team_suresh.webp" alt="CA Suresh Sundaram" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <strong style="font-size: 0.88rem; color: #0f172a;">CA Suresh Sundaram, FCA</strong>
+                                            <span style="font-size: 0.68rem; color: #3b82f6; font-weight: 700; background: #eff6ff; padding: 2px 6px; border-radius: 6px;">M&amp;A Lead</span>
+                                        </div>
+                                        <span style="font-size: 0.74rem; color: #64748b; display: block; margin-top: 2px;">Corporate Restructuring &amp; NCLT Valuations</span>
+                                        <span style="font-size: 0.7rem; color: #3b82f6; font-weight: 600; margin-top: 2px; display: block;"><i class="fa-solid fa-envelope" style="margin-right: 4px;"></i> suresh@stackly.com &bull; Chennai Chambers</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+                <div class="dash-tab-pane" id="tab-engagements">
+                    <div class="dash-card-box">
+                        <div class="dash-card-box-header">
+                            <div>
+                                <h4>Advisory Retainer Engagements</h4>
+                                <span style="font-size: 0.78rem; color: #64748b;">Comprehensive overview of corporate mandate deliverables</span>
+                            </div>
+                            <span class="status-badge-modern success">Retainer Active</span>
+                        </div>
+
+                        <div style="overflow-x: auto;">
+                            <table class="modern-data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Engagement Title</th>
+                                        <th>Mandate Scope</th>
+                                        <th>Lead Partner</th>
+                                        <th>Deliverable Deadline</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Comprehensive Statutory Audit FY25-26</strong></td>
+                                        <td>Balance Sheet, P&amp;L certification, 3CD reporting</td>
+                                        <td>Vignesh Moorthy, FCA</td>
+                                        <td>30 Sept 2026</td>
+                                        <td><span class="status-badge-modern success">Audited &amp; Signed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cross-Border Transfer Pricing Study</strong></td>
+                                        <td>Arm's length margin study &amp; Form 3CEB</td>
+                                        <td>Suresh Sundaram, CA</td>
+                                        <td>31 Oct 2026</td>
+                                        <td><span class="status-badge-modern info">Benchmarking Complete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Quarterly GST Health Check &amp; ITC Reversal</strong></td>
+                                        <td>Rule 42/43 compliance &amp; DRC-01 triage</td>
+                                        <td>Priya Krishnan, CA</td>
+                                        <td>Continuous / Rolling</td>
+                                        <td><span class="status-badge-modern success">100% In Order</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="dash-tab-pane" id="tab-vault">
+                    <div class="dash-card-box">
+                        <div class="dash-card-box-header">
+                            <div>
+                                <h4>Encrypted Document Vault</h4>
+                                <span style="font-size: 0.78rem; color: #64748b;">Digitally signed ICAI audit certificates, tax returns, and board memorandums</span>
+                            </div>
+                            <span style="font-size: 0.74rem; color: #10b981; font-weight: 700;"><i class="fas fa-lock"></i> AES-256 Bit Secure</span>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 14px;">
+                            <div style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                                <div style="display: flex; align-items: center; gap: 14px;">
+                                    <div style="width: 42px; height: 42px; border-radius: 10px; background: #fef2f2; color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div>
+                                        <strong style="display: block; font-size: 0.88rem; color: var(--text-dark, #0f172a);">Form 3CD Tax Audit Report (FY25-26)</strong>
+                                        <span style="font-size: 0.74rem; color: #64748b;">Certified by Vignesh Moorthy &bull; 4.2 MB &bull; Signed 2 Days Ago</span>
+                                    </div>
+                                </div>
+                                <a href="404.html" class="download-report-btn dtbtn dtbtn-sm" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+
+                            <div style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                                <div style="display: flex; align-items: center; gap: 14px;">
+                                    <div style="width: 42px; height: 42px; border-radius: 10px; background: #eff6ff; color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                        <i class="fas fa-file-shield"></i>
+                                    </div>
+                                    <div>
+                                        <strong style="display: block; font-size: 0.88rem; color: var(--text-dark, #0f172a);">GST Annual Return GSTR-9C Reconciliation</strong>
+                                        <span style="font-size: 0.74rem; color: #64748b;">CBIC Acknowledgement #8890442 &bull; 2.8 MB</span>
+                                    </div>
+                                </div>
+                                <a href="404.html" class="download-report-btn dtbtn dtbtn-sm" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+
+                            <div style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                                <div style="display: flex; align-items: center; gap: 14px;">
+                                    <div style="width: 42px; height: 42px; border-radius: 10px; background: #ecfdf5; color: #10b981; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                        <i class="fas fa-file-contract"></i>
+                                    </div>
+                                    <div>
+                                        <strong style="display: block; font-size: 0.88rem; color: var(--text-dark, #0f172a);">NCLT Demerger Scheme Valuation Docket</strong>
+                                        <span style="font-size: 0.74rem; color: #64748b;">Certified Merchant Banker Valuation &bull; 6.1 MB</span>
+                                    </div>
+                                </div>
+                                <a href="404.html" class="download-report-btn dtbtn dtbtn-sm" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="dash-tab-pane" id="tab-calendar">
+                    <div class="dash-card-box">
+                        <div class="dash-card-box-header">
+                            <div>
+                                <h4>Statutory Compliance Calendar (FY2025-26)</h4>
+                                <span style="font-size: 0.78rem; color: #64748b;">Upcoming mandatory Indian corporate tax &amp; secretarial deadlines</span>
+                            </div>
+                            <span class="status-badge-modern info">Active Alerts</span>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div style="padding: 14px; background: #fffbeb; border-radius: 12px; border-left: 4px solid #f59e0b; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: #92400e;">15 March 2026 &bull; Income Tax Advance Tax (Installment 4)</strong>
+                                    <p style="margin: 2px 0 0; font-size: 0.82rem; color: #b45309;">100% of estimated annual corporate tax liability to be deposited via e-Pay Tax.</p>
+                                </div>
+                                <span class="status-badge-modern warning">In 4 Days</span>
+                            </div>
+
+                            <div style="padding: 14px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #10b981; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: var(--text-dark, #0f172a);">20 March 2026 &bull; Monthly GST GSTR-3B Return</strong>
+                                    <p style="margin: 2px 0 0; font-size: 0.82rem; color: #64748b;">Monthly summary return of outward supplies &amp; input tax credit reconciliation.</p>
+                                </div>
+                                <span class="status-badge-modern success">Data Reconciled</span>
+                            </div>
+
+                            <div style="padding: 14px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #3b82f6; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: var(--text-dark, #0f172a);">30 April 2026 &bull; MCA Form MSME-1 Half Yearly Return</strong>
+                                    <p style="margin: 2px 0 0; font-size: 0.82rem; color: #64748b;">Disclosure of outstanding payments to micro and small enterprises exceeding 45 days.</p>
+                                </div>
+                                <span class="status-badge-modern info">Scheduled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="dash-tab-pane" id="tab-billing">
+                    <div class="dash-card-box">
+                        <div class="dash-card-box-header">
+                            <div>
+                                <h4>Corporate Retainer Invoices</h4>
+                                <span style="font-size: 0.78rem; color: #64748b;">Monthly &amp; Quarterly advisory retainer receipts</span>
+                            </div>
+                            <span class="status-badge-modern success">Account in Good Standing</span>
+                        </div>
+
+                        <div style="overflow-x: auto;">
+                            <table class="modern-data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Invoice #</th>
+                                        <th>Period</th>
+                                        <th>Services Rendered</th>
+                                        <th>Amount</th>
+                                        <th>Payment Status</th>
+                                        <th style="text-align: right;">Receipt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>INV-2026-089</strong></td>
+                                        <td>Q3 FY25-26</td>
+                                        <td>Statutory Audit &amp; Transfer Pricing Retainer</td>
+                                        <td>₹4,50,000</td>
+                                        <td><span class="status-badge-modern success">Paid via RTGS</span></td>
+                                        <td style="text-align: right;">
+                                            <a href="404.html" class="download-report-btn dtbtn dtbtn-sm" style="padding: 6px 12px; font-size: 0.76rem; text-decoration: none;">
+                                                <i class="fas fa-file-invoice"></i> Receipt
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>INV-2025-044</strong></td>
+                                        <td>Q2 FY25-26</td>
+                                        <td>Corporate Restructuring &amp; Demerger Advisory</td>
+                                        <td>₹6,00,000</td>
+                                        <td><span class="status-badge-modern success">Paid via RTGS</span></td>
+                                        <td style="text-align: right;">
+                                            <a href="404.html" class="download-report-btn dtbtn dtbtn-sm" style="padding: 6px 12px; font-size: 0.76rem; text-decoration: none;">
+                                                <i class="fas fa-file-invoice"></i> Receipt
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="dash-tab-pane" id="tab-chambers">
+                    
+                    
+                    <div class="dash-chamber-hero">
+                        <img src="assets/contact-meeting.webp" alt="Salem Corporate Chambers" class="dash-chamber-hero-bg">
+                        <div class="dash-chamber-hero-content">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                                <span class="dash-status-pill" style="background: rgba(16, 185, 129, 0.25); border: 1px solid rgba(16, 185, 129, 0.6); color: #34d399;">
+                                    <span class="pulse-indicator-emerald"></span> SALEM HQ CHAMBERS ACTIVE
+                                </span>
+                                <span style="font-size: 0.74rem; color: #cbd5e1; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;">
+                                    <i class="fas fa-landmark" style="margin-right: 4px;"></i> MMR Complex &bull; Salem, Chennai, Bangalore
+                                </span>
+                            </div>
+                            <h2 style="font-size: 1.7rem; font-weight: 800; color: #ffffff; margin: 0 0 8px;">Executive Advisory Chambers &amp; Senior Counsel</h2>
+                            <p style="color: #cbd5e1; font-size: 0.88rem; max-width: 680px; margin: 0 0 20px; line-height: 1.5;">
+                                Your corporate retainer grants exclusive access to private soundproof client suites, direct ICAI chartered accountant consultations, and 256-bit encrypted data verification facilities.
+                            </p>
+                            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                                <a href="404.html" class="dtbtn dtbtn-sm" style="padding: 10px 20px; border-radius: 10px; text-decoration: none;">
+                                    <i class="fas fa-video" style="margin-right: 6px;"></i> Book Chamber Conference
+                                </a>
+                                <a href="404.html" class="dtbtn dtbtn-white dtbtn-sm" style="padding: 10px 20px; border-radius: 10px; text-decoration: none;">
+                                    <i class="fas fa-phone-alt" style="margin-right: 6px;"></i> Salem Desk: +91 427 244 9000
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="dash-card-box">
+                        <div class="dash-card-box-header">
+                            <div>
+                                <h4>Designated Senior Advisory Partners</h4>
+                                <span style="font-size: 0.78rem; color: #64748b;">Direct chartered accountant team assigned to your corporate entity</span>
+                            </div>
+                            <span class="status-badge-modern success">All Partners Available</span>
+                        </div>
+
+                        <div class="partner-image-grid">
+                            
+                            <div class="partner-image-card">
+                                <div class="partner-card-media">
+                                    <img src="assets/team_vignesh.webp" alt="CA Vignesh Moorthy">
+                                    <span class="partner-card-badge">Managing Partner</span>
+                                    <span class="partner-card-status-dot"><i class="fas fa-circle" style="font-size: 0.45rem;"></i> Salem HQ Online</span>
+                                </div>
+                                <div class="partner-card-body">
+                                    <div>
+                                        <strong style="font-size: 0.98rem; color: #0f172a; display: block;">CA Vignesh Moorthy, FCA</strong>
+                                        <span style="font-size: 0.76rem; color: var(--primary); font-weight: 700; display: block; margin-top: 2px;">Senior Statutory Tax Partner</span>
+                                        <p style="font-size: 0.74rem; color: #64748b; margin: 8px 0; line-height: 1.4;">20+ years leading Form 3CD corporate tax audits, ITAT appellate defense, and board restructuring.</p>
+                                    </div>
+                                    <a href="404.html" class="dtbtn dtbtn-outline dtbtn-sm" style="width: 100%; justify-content: center; margin-top: 10px; font-size: 0.78rem; padding: 8px; text-decoration: none;">
+                                        <i class="fas fa-calendar-check" style="margin-right: 6px;"></i> Schedule Call
+                                    </a>
+                                </div>
+                            </div>
+
+                            
+                            <div class="partner-image-card">
+                                <div class="partner-card-media">
+                                    <img src="assets/team_suresh.webp" alt="CA Suresh Sundaram">
+                                    <span class="partner-card-badge">M&amp;A Lead</span>
+                                    <span class="partner-card-status-dot"><i class="fas fa-circle" style="font-size: 0.45rem;"></i> Chennai Chambers</span>
+                                </div>
+                                <div class="partner-card-body">
+                                    <div>
+                                        <strong style="font-size: 0.98rem; color: #0f172a; display: block;">CA Suresh Sundaram, FCA</strong>
+                                        <span style="font-size: 0.76rem; color: #3b82f6; font-weight: 700; display: block; margin-top: 2px;">Corporate Finance &amp; Valuations</span>
+                                        <p style="font-size: 0.74rem; color: #64748b; margin: 8px 0; line-height: 1.4;">Specialist in cross-border acquisitions, NCLT demergers, and merchant banker valuation dockets.</p>
+                                    </div>
+                                    <a href="404.html" class="dtbtn dtbtn-outline dtbtn-sm" style="width: 100%; justify-content: center; margin-top: 10px; font-size: 0.78rem; padding: 8px; text-decoration: none;">
+                                        <i class="fas fa-calendar-check" style="margin-right: 6px;"></i> Schedule Call
+                                    </a>
+                                </div>
+                            </div>
+
+                            
+                            <div class="partner-image-card">
+                                <div class="partner-card-media">
+                                    <img src="assets/team_priya.webp" alt="CA Priya Krishnan">
+                                    <span class="partner-card-badge">GST Counsel</span>
+                                    <span class="partner-card-status-dot"><i class="fas fa-circle" style="font-size: 0.45rem;"></i> Salem HQ Online</span>
+                                </div>
+                                <div class="partner-card-body">
+                                    <div>
+                                        <strong style="font-size: 0.98rem; color: #0f172a; display: block;">CA Priya Krishnan, ACA</strong>
+                                        <span style="font-size: 0.76rem; color: #10b981; font-weight: 700; display: block; margin-top: 2px;">Indirect Tax &amp; GST Head</span>
+                                        <p style="font-size: 0.74rem; color: #64748b; margin: 8px 0; line-height: 1.4;">Authority on Rule 42/43 ITC audits, DRC-01 notice triage, and export rebate reconciliations.</p>
+                                    </div>
+                                    <a href="404.html" class="dtbtn dtbtn-outline dtbtn-sm" style="width: 100%; justify-content: center; margin-top: 10px; font-size: 0.78rem; padding: 8px; text-decoration: none;">
+                                        <i class="fas fa-calendar-check" style="margin-right: 6px;"></i> Schedule Call
+                                    </a>
+                                </div>
+                            </div>
+
+                            
+                            <div class="partner-image-card">
+                                <div class="partner-card-media">
+                                    <img src="assets/team_deepika.webp" alt="Deepika Rao">
+                                    <span class="partner-card-badge">Global Tax</span>
+                                    <span class="partner-card-status-dot"><i class="fas fa-circle" style="font-size: 0.45rem;"></i> Bangalore Hub</span>
+                                </div>
+                                <div class="partner-card-body">
+                                    <div>
+                                        <strong style="font-size: 0.98rem; color: #0f172a; display: block;">Deepika Rao, CPA, LLB</strong>
+                                        <span style="font-size: 0.76rem; color: #8b5cf6; font-weight: 700; display: block; margin-top: 2px;">International Tax &amp; FEMA</span>
+                                        <p style="font-size: 0.74rem; color: #64748b; margin: 8px 0; line-height: 1.4;">Expert in Form 15CA/CB cross-border remittances, transfer pricing studies, and DTAA relief.</p>
+                                    </div>
+                                    <a href="404.html" class="dtbtn dtbtn-outline dtbtn-sm" style="width: 100%; justify-content: center; margin-top: 10px; font-size: 0.78rem; padding: 8px; text-decoration: none;">
+                                        <i class="fas fa-calendar-check" style="margin-right: 6px;"></i> Schedule Call
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="dash-card-box">
+                        <div class="dash-card-box-header">
+                            <div>
+                                <h4>Salem HQ Chambers &amp; Advisory Infrastructure</h4>
+                                <span style="font-size: 0.78rem; color: #64748b;">Physical and cryptographic security facilities dedicated to your accounts</span>
+                            </div>
+                            <span class="status-badge-modern info"><i class="fas fa-shield-alt"></i> ISO 27001 Certified</span>
+                        </div>
+
+                        <div class="case-study-grid" style="margin-bottom: 24px;">
+                            <div class="case-study-card">
+                                <div class="case-study-media">
+                                    <img src="assets/contact-meeting.webp" alt="Executive Conference Suite">
+                                </div>
+                                <div class="case-study-body">
+                                    <div>
+                                        <strong style="font-size: 0.92rem; color: #0f172a; display: block;">Private Boardroom Suites</strong>
+                                        <span style="font-size: 0.72rem; color: #64748b; display: block; margin-top: 2px;">MMR Complex, Salem</span>
+                                        <p style="font-size: 0.76rem; color: #475569; margin: 8px 0 0; line-height: 1.4;">Sound-isolated executive chambers for confidential board resolutions, statutory audits, and shareholder alignments.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="case-study-card">
+                                <div class="case-study-media">
+                                    <img src="assets/austin-distel-mpN7xjKQ_Ns-unsplash.webp" alt="Encrypted Tax Filing Lab">
+                                </div>
+                                <div class="case-study-body">
+                                    <div>
+                                        <strong style="font-size: 0.92rem; color: #0f172a; display: block;">Encrypted Tax Audit Center</strong>
+                                        <span style="font-size: 0.72rem; color: #64748b; display: block; margin-top: 2px;">Secure Forensic Ledger Verification</span>
+                                        <p style="font-size: 0.76rem; color: #475569; margin: 8px 0 0; line-height: 1.4;">High-security computational laboratory for SAP/Tally ledger extraction, Form 3CD analytics, and tax shielding.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="case-study-card">
+                                <div class="case-study-media">
+                                    <img src="assets/pexels-tima-miroshnichenko-5439476.webp" alt="Appellate Scrutiny Strategy Room">
+                                </div>
+                                <div class="case-study-body">
+                                    <div>
+                                        <strong style="font-size: 0.92rem; color: #0f172a; display: block;">Appellate Litigation War Room</strong>
+                                        <span style="font-size: 0.72rem; color: #64748b; display: block; margin-top: 2px;">ITAT &amp; High Court Preparation</span>
+                                        <p style="font-size: 0.76rem; color: #475569; margin: 8px 0 0; line-height: 1.4;">Dedicated case preparation desk with direct link to Senior Supreme Court Advocates &amp; ICAI Council benches.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="dash-card-box">
+                        <div class="dash-card-box-header">
+                            <div>
+                                <h4>Recent Advisory Achievements for Enterprise Clients</h4>
+                                <span style="font-size: 0.78rem; color: #64748b;">Documented financial impact delivered through our Salem &amp; Chennai chambers</span>
+                            </div>
+                            <span class="status-badge-modern success">₹84+ Cr Saved Total</span>
+                        </div>
+
+                        <div class="case-study-grid">
+                            <div class="case-study-card">
+                                <div class="case-study-media">
+                                    <img src="assets/pexels-tima-miroshnichenko-5439369.webp" alt="Salem Steel Hub ITC Optimization">
+                                </div>
+                                <div class="case-study-body">
+                                    <div>
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                            <span style="font-size: 0.7rem; font-weight: 700; color: #10b981; background: #ecfdf5; padding: 2px 6px; border-radius: 4px;">GST Optimization</span>
+                                            <strong style="color: #10b981; font-size: 0.85rem;">₹14.2 Cr Saved</strong>
+                                        </div>
+                                        <strong style="font-size: 0.9rem; color: #0f172a; display: block;">Industrial Steel Cluster ITC Recovery</strong>
+                                        <p style="font-size: 0.75rem; color: #64748b; margin: 6px 0 0; line-height: 1.4;">Resolved Section 16(4) blocked credits across 4 rolling mills with 100% CBIC appellate acceptance.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="case-study-card">
+                                <div class="case-study-media">
+                                    <img src="assets/pexels-yankrukov-7691675.webp" alt="Cross-Border Demerger Valuation">
+                                </div>
+                                <div class="case-study-body">
+                                    <div>
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                            <span style="font-size: 0.7rem; font-weight: 700; color: #3b82f6; background: #eff6ff; padding: 2px 6px; border-radius: 4px;">NCLT Restructuring</span>
+                                            <strong style="color: #3b82f6; font-size: 0.85rem;">₹62 Cr Valuation</strong>
+                                        </div>
+                                        <strong style="font-size: 0.9rem; color: #0f172a; display: block;">Textile Conglomerate Demerger Docket</strong>
+                                        <p style="font-size: 0.75rem; color: #64748b; margin: 6px 0 0; line-height: 1.4;">Drafted seamless scheme of arrangement with zero capital gains impact under Sec 47(vib).</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="case-study-card">
+                                <div class="case-study-media">
+                                    <img src="assets/home_about_company.webp" alt="Transfer Pricing Benchmarking">
+                                </div>
+                                <div class="case-study-body">
+                                    <div>
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                            <span style="font-size: 0.7rem; font-weight: 700; color: var(--primary); background: rgba(255,74,23,0.1); padding: 2px 6px; border-radius: 4px;">Transfer Pricing</span>
+                                            <strong style="color: var(--primary); font-size: 0.85rem;">Form 3CEB Certified</strong>
+                                        </div>
+                                        <strong style="font-size: 0.9rem; color: #0f172a; display: block;">SaaS Enterprise Arm's Length Study</strong>
+                                        <p style="font-size: 0.75rem; color: #64748b; margin: 6px 0 0; line-height: 1.4;">Engineered compliant royalty rate defense across US and EU subsidiary structures.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    
+    <button class="chat-widget-toggle" title="Chat with Salem Advisory Desk">
+        <i class="fas fa-comments"></i> <span>Advisory Live Chat</span>
+    </button>
+
+    <div class="chat-widget-box">
+        <div class="chat-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></div>
+                <div>
+                    <strong style="display: block; font-size: 0.9rem;">Salem Partner Hotline</strong>
+                    <span style="font-size: 0.72rem; color: #94a3b8;">Senior CA Desk Online</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" style="background: none; border: none; color: #94a3b8; font-size: 1.1rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="chat-messages">
+            <div style="align-self: flex-start; background: #ffffff; color: var(--text-dark, #0f172a); padding: 10px 14px; border-radius: 14px 14px 14px 2px; max-width: 82%; font-size: 0.85rem; margin-bottom: 8px; border: 1px solid #e2e8f0;">
+                Hello Anandha! Your dedicated advisory team at Salem HQ is active. How may we assist your finance desk today?
+            </div>
+        </div>
+
+        <form class="chat-input-form">
+            <input type="text" placeholder="Type message to CA partner..." style="flex: 1; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 0.86rem; outline: none;">
+            <button type="submit" class="dtbtn dtbtn-sm" style="padding: 10px 14px; border-radius: 10px; border: none; cursor: pointer;">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+
+    
+    <div id="logoutModal" class="dash-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="logoutModalTitle">
+        <div class="dash-modal-card">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: #fef2f2; color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px; border: 2px solid #fee2e2;">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <h3 id="logoutModalTitle" style="font-size: 1.3rem; color: var(--text-dark, #0f172a); margin: 0 0 8px; font-weight: 700;">Confirm Logout</h3>
+            <p style="color: #64748b; font-size: 0.88rem; line-height: 1.5; margin: 0 0 24px;">
+                Are you sure you want to end your corporate workspace session? Your encrypted records remain safe.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center;">
+                <button type="button" id="cancelLogoutBtn" class="dtbtn dtbtn-outline dtbtn-sm" style="flex: 1; padding: 10px; font-size: 0.88rem;">
+                    Cancel
+                </button>
+                <button type="button" id="confirmLogoutBtn" class="dtbtn dtbtn-sm" style="flex: 1; padding: 10px; font-size: 0.88rem; background: #ef4444; border-color: #ef4444;">
+                    Logout Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="videoCallModal" class="dash-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
+        <div class="dash-modal-card" style="max-width: 480px; text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(255, 74, 23, 0.1); color: #ff4a17; display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div>
+                        <h3 id="videoModalTitle" style="font-size: 1.15rem; color: var(--text-dark, #0f172a); margin: 0; font-weight: 700;">Partner Video Consultation</h3>
+                        <span style="font-size: 0.74rem; color: #64748b;">Direct consultation with Senior Partner Vignesh Moorthy</span>
+                    </div>
+                </div>
+                <button type="button" class="close-video-modal-btn" style="background: none; border: none; font-size: 1.2rem; color: #94a3b8; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form id="videoBookingForm" style="display: flex; flex-direction: column; gap: 14px;">
+                <div>
+                    <label style="display: block; font-size: 0.82rem; font-weight: 600; color: #334155; margin-bottom: 6px;">Preferred Date</label>
+                    <input type="date" required value="2026-10-06" class="form-input" style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid #e2e8f0; font-size: 0.88rem; box-sizing: border-box;">
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.82rem; font-weight: 600; color: #334155; margin-bottom: 6px;">Time Slot</label>
+                    <select class="form-input" style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid #e2e8f0; font-size: 0.88rem; box-sizing: border-box;">
+                        <option>10:30 AM - 11:15 AM (IST) - Salem HQ Chamber</option>
+                        <option>02:00 PM - 02:45 PM (IST) - Direct Encrypted Link</option>
+                        <option>04:30 PM - 05:15 PM (IST) - Direct Encrypted Link</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.82rem; font-weight: 600; color: #334155; margin-bottom: 6px;">Consultation Agenda / Notice Ref</label>
+                    <textarea rows="3" placeholder="e.g. FY25-26 Form 3CD final review or GSTR-3B ITC reconciliation..." style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid #e2e8f0; font-size: 0.88rem; box-sizing: border-box; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 6px;">
+                    <button type="button" class="close-video-modal-btn dtbtn dtbtn-outline dtbtn-sm" style="flex: 1; padding: 10px; justify-content: center;">
+                        Cancel
+                    </button>
+                    <button type="submit" class="dtbtn dtbtn-sm" style="flex: 1.3; padding: 10px; justify-content: center;">
+                        <i class="fas fa-calendar-check" style="margin-right: 6px;"></i> Confirm Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <div id="uploadDocsModal" class="dash-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="uploadModalTitle">
+        <div class="dash-modal-card" style="max-width: 480px; text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(59, 130, 246, 0.1); color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                        <i class="fas fa-cloud-arrow-up"></i>
+                    </div>
+                    <div>
+                        <h3 id="uploadModalTitle" style="font-size: 1.15rem; color: var(--text-dark, #0f172a); margin: 0; font-weight: 700;">Upload Financial Documents</h3>
+                        <span style="font-size: 0.74rem; color: #64748b;">Direct transmission to 256-bit encrypted audit vault</span>
+                    </div>
+                </div>
+                <button type="button" class="close-upload-modal-btn" style="background: none; border: none; font-size: 1.2rem; color: #94a3b8; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form id="docUploadForm" style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="border: 2px dashed #cbd5e1; border-radius: 12px; padding: 26px 16px; text-align: center; background: #f8fafc; cursor: pointer; transition: all 0.2s ease;">
+                    <i class="fas fa-file-shield" style="font-size: 2.2rem; color: #3b82f6; margin-bottom: 8px; display: block;"></i>
+                    <strong style="display: block; font-size: 0.9rem; color: var(--text-dark, #0f172a);">Drag &amp; Drop Invoices, Ledgers or PDFs here</strong>
+                    <span style="display: block; font-size: 0.76rem; color: #64748b; margin-top: 4px;">Supports PDF, XLSX, ZIP up to 50MB</span>
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.82rem; font-weight: 600; color: #334155; margin-bottom: 6px;">Document Category</label>
+                    <select class="form-input" style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid #e2e8f0; font-size: 0.88rem; box-sizing: border-box;">
+                        <option>Q4 FY25-26 Bank Statements &amp; Ledger Books</option>
+                        <option>GST Input Tax Credit / Purchase Register</option>
+                        <option>Form 3CD Supporting Vouchers &amp; Fixed Assets</option>
+                        <option>Other Corporate Advisory Records</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 6px;">
+                    <button type="button" class="close-upload-modal-btn dtbtn dtbtn-outline dtbtn-sm" style="flex: 1; padding: 10px; justify-content: center;">
+                        Cancel
+                    </button>
+                    <button type="submit" class="dtbtn dtbtn-sm" style="flex: 1.3; padding: 10px; justify-content: center; background: #3b82f6; border-color: #3b82f6;">
+                        <i class="fas fa-lock" style="margin-right: 6px;"></i> Encrypt &amp; Transmit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+    <script>
+       
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoModal = document.getElementById('videoCallModal');
+            const uploadModal = document.getElementById('uploadDocsModal');
+            const btnVideoCall = document.getElementById('btnVideoCall');
+            const btnUploadDocs = document.getElementById('btnUploadDocs');
+
+            function openModal(modal) {
+                if (modal) modal.classList.add('is-open');
+            }
+            function closeModal(modal) {
+                if (modal) modal.classList.remove('is-open');
+            }
+
+            if (btnVideoCall) {
+                btnVideoCall.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(videoModal);
+                });
+            }
+            document.querySelectorAll('.open-video-modal-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(videoModal);
+                });
+            });
+
+            if (btnUploadDocs) {
+                btnUploadDocs.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(uploadModal);
+                });
+            }
+
+            document.querySelectorAll('.close-video-modal-btn').forEach(b => {
+                b.addEventListener('click', () => closeModal(videoModal));
+            });
+            document.querySelectorAll('.close-upload-modal-btn').forEach(b => {
+                b.addEventListener('click', () => closeModal(uploadModal));
+            });
+
+            const videoBookingForm = document.getElementById('videoBookingForm');
+            if (videoBookingForm) {
+                videoBookingForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    closeModal(videoModal);
+                    if (typeof window.showToast === 'function') {
+                        window.showToast('Video consultation requested! Meeting link dispatched to your email.');
+                    } else {
+                        alert('Video consultation requested! Meeting link dispatched to your email.');
+                    }
+                });
+            }
+
+            const docUploadForm = document.getElementById('docUploadForm');
+            if (docUploadForm) {
+                docUploadForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    closeModal(uploadModal);
+                    if (typeof window.showToast === 'function') {
+                        window.showToast('Documents encrypted & transmitted to vault successfully!');
+                    } else {
+                        alert('Documents encrypted & transmitted to vault successfully!');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
